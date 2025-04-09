@@ -21,6 +21,10 @@ export default function Home() {
         <SignedIn>
           <UserButton />
         </SignedIn>
+        <Link href="/home">
+
+          <p >eslam</p>
+        </Link>
       </div>
     </>
   );
