@@ -9,29 +9,29 @@ import { BsTools } from 'react-icons/bs';
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: 'Home',
-    path: '/',
+    path: '/home',
     icon: <HomeIcon width="22px" height="22px" />,
   },
   {
     title: 'Workouts',
-    path: '/workouts',
+    path: '',
     icon: <IoFitness style={{ width: "22px", height: "22px" }} />,
     submenu: true,
     subMenuItems: [
-      { title: 'My Workouts', path: '/projects' },
-      { title: 'Workouts', path: '/projects/web-design' },
-      { title: 'AI Generator', path: '/projects/graphic-design' },
+      { title: 'My Workouts', path: 'home/workouts/my-workouts' },
+      { title: 'Workouts', path: 'home/workouts/all-workouts' },
+      { title: 'AI Generator', path: 'home/workouts/generator' },
     ],
   },
   {
-    title: 'Routines',
-    path: '/routines',
+    title: 'Nutrition',
+    path: 'home/Nutrition',
     icon: <Calendar width="22px" height="22px" />,
   },
 
   {
     title: 'Tools',
-    path: '/toolss',
+    path: 'home/tools',
     icon: <BsTools style={{ width: "22px", height: "22px" }} />,
     submenu: true,
     subMenuItems: [
@@ -42,17 +42,13 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   },
   {
     title: 'Articles',
-    path: '/articles',
+    path: 'home/articles',
     icon: <Paperclip width="22px" height="22px" />,
   },
   {
     title: 'Directory',
-    path: '/directory',
+    path: 'home/directory',
     icon: <Dumbbell width="22px" height="22px" />,
   },
-  {
-    title: 'reyad',
-    path: '/reyad',
-    icon: <Dumbbell width="22px" height="22px" />,
-  },
+
 ];

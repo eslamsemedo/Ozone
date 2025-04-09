@@ -12,7 +12,7 @@ import {
   UserButton,
 } from '@clerk/nextjs'
 
-
+// derdyrdyred
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,14 +30,7 @@ export default function RootLayout({
         <body
           className={``}
         >
-          <div className={`grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] gap-2 h-screen`}>
-            <Header />
-            <Sidebar />
-            <div className={`bg-black rounded-3xl col-span-full md:col-auto p-2`}>
-              {children}
-            </div>
-            <HeaderMobile />
-          </div>
+          {children}
         </body>
       </html>
     </ClerkProvider>

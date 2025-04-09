@@ -235,7 +235,7 @@ const MenuItemWithSubMenu: React.FC<MenuItemWithSubMenuProps> = ({ item, toggleO
               {item.subMenuItems?.map((subItem, subIdx) => (
                 <MenuItem key={subIdx}>
                   <Link
-                    href={subItem.path}
+                    href={`/${subItem.path}`}
                     onClick={toggleOpen}
                     className={`
                       ${subItem.path === pathname ? "font-bold" : ""}
