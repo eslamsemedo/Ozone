@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 export default function Header() {
     return (<>
         <header className=" md:block z-50 sticky p-1 top-1 font-sans col-span-full">
-            <div className=' bg-gradient-to-r from-[#20584d] to-[#1e90ff]  shadow-xl flex justify-between items-center max-w-6xl mx-auto p-3 rounded-xl h-14'>
+            <div className=' bg-gradient-to-r from-[#004AAD] to-[#4a7fb5]  shadow-xl flex justify-between items-center max-w-6xl mx-auto p-3 rounded-xl h-14'>
                 <h1 className=' transform translate-x-7 font-bold text-sm sm:text-xl flex flex-wrap'>
                     <span className='text-slate-400'>Ozone</span>
                     <span className='text-slate-100'>Website</span>
@@ -21,7 +21,7 @@ export default function Header() {
                     <li>
                         {/* user signed in */}
                         <div className=" cursor-pointer">
-                            HI!
+                            <UserButton />
                         </div>
                     </li>
                 </ul>

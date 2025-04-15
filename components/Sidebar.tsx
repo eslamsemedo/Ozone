@@ -30,7 +30,7 @@ import { usePathname } from "next/navigation";
 import { SideNavItem } from "@/define/types";
 import { Icon } from "@iconify/react";
 import { currentUser } from "@clerk/nextjs/server";
-import { useUser } from "@clerk/nextjs";
+import { SignedIn, UserButton, useUser } from "@clerk/nextjs";
 
 // Create SidebarContext to share the expanded state.
 const SidebarContext = createContext({ expanded: true });
@@ -60,7 +60,7 @@ export default function Sidebar() {
     <div className="hidden md:block z-20 row-start-2 col-start-1 col-span-1 h-full">
       <nav
         className={`
-          rounded-3xl h-full flex flex-col bg-gradient-to-r from-[#20584d] to-[#1e90ff] border-r shadow-sm 
+          rounded-3xl h-full flex flex-col bg-gradient-to-r from-[#004AAD] to-[#4a7fb5] border-r shadow-sm 
           transition-all duration-500 ease-in-out
         `}
       >
@@ -99,11 +99,16 @@ export default function Sidebar() {
 
         {/* Footer */}
         <div className={`border-t flex p-3 items-center ${user || "hidden"}`}>
-          <img
+          {/* <img
             src={user?.imageUrl}
             alt="profile picture"
             className="w-10 h-10 rounded-md"
-          />
+          /> */}
+          <SignedIn >
+            <div className="flex gap-2">
+              <UserButton />
+            </div>
+          </SignedIn>
           <div
             className={`
               flex justify-between items-center

@@ -1,31 +1,46 @@
 "use client"
 
-import Header from "@/components/Header";
-import HeaderMobile from "@/components/header-mobile";
-import connectDB from "@/mongoDB/db";
-import { User } from "@/mongoDB/models/User";
-import { SignedIn, SignedOut, SignIn, SignInButton, UserButton } from "@clerk/nextjs";
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef } from "react";
+import { useAuth } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import Hero from "@/components/landing/hero";
+import Con2 from "@/components/landing/con2";
+import Feedback from "@/components/landing/feedback";
+import Con3 from "@/components/landing/con3";
+import Footer from "@/components/landing/footer";
+
+
 
 export default function Home() {
+  const { isLoaded, isSignedIn } = useAuth();
+  const router = useRouter();
+  const hasRun = useRef(false);
+
+  useEffect(() => {
+    if (isLoaded && isSignedIn && !hasRun.current) {
+      hasRun.current = true;
+      myPostSignInFunction();
+      router.push("/home");
+    }
+  }, [isLoaded, isSignedIn, router]);
+
 
   return (
     <>
-      <div className="text-gray-400">
-        <SignedOut>
-          {/* <SignIn  afterSignInUrl="/home" >
-          <SignInButton />
-          </SignIn> */}
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
-        <Link href="/home">
-
-          <p >eslam</p>
-        </Link>
-      </div>
+      <Hero />
+      <Con2 />
+      <div className="bg-[url('/img/p3.jpg')] bg-fixed h-[250px] bg-cover"></div>
+      <Feedback />
+      <Con3 />
+      <Footer />
     </>
   );
+}
+
+// define whatever you need to run:
+function myPostSignInFunction() {
+  console.log("🎉 user just signed in!");
+  // e.g. fetch user profile, track analytics, initialize data…
+  // connectDB();
+
 }

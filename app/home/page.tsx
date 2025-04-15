@@ -1,7 +1,9 @@
+import { currentUser } from '@clerk/nextjs/server';
 import Link from 'next/link'
+import { redirect } from 'next/navigation';
 import React from 'react'
 
-export default function page() {
+export default async function page() {
     const weekDays = [
         "Sunday",
         "Monday",
@@ -11,7 +13,12 @@ export default function page() {
         "Friday",
         "Saturday"
     ];
+
+    Date.now()
     const today = new Date().toLocaleString('en-US', { weekday: 'long' });
+
+
+    // console.log(await currentUser())
     return (
         <div
             className="h-full flex flex-col justify-center items-center text-[#6c94d9] font-sans rounded-3xl "
