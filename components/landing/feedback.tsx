@@ -23,11 +23,11 @@ export default function feedback() {
     <div>
       <h2 className=' text-center text-[50px] text-[#191d2b]'>Feedback</h2>
 
-      <div className='flex flex-wrap justify-between items-center w-[80%] mx-auto my-[50px]'>
+      <div className='flex flex-col xl:flex-row justify-between items-center w-[80%] mx-auto my-[50px]'>
 
         {
           info.map((item, index) => (
-            <div key={index} className=" w-[25%] h-[180px] bg-[linear-gradient(163deg,_#ffa500_0%,_#3DC2EC_100%)] rounded-[20px] transition-all duration-100 hover:shadow-[0_0_30px_1px_rgba(0,255,117,0.3)] items-center justify-center">
+            <div key={index} className=" max-w-[700px] mb-5  bg-[linear-gradient(163deg,_#ffa500_0%,_#3DC2EC_100%)] rounded-[20px] transition-all duration-100 hover:shadow-[0_0_30px_1px_rgba(0,255,117,0.3)] items-center justify-center">
               <div className="p-5 w-full h-full bg-[#2b3247] transition-all duration-500 rounded-2xl hover:scale-[0.98] hover:bg-[#191d29] hover:rounded-[20px]  text-white">
                 <p className='text-[#9f9f9f] h-[55%]'>{item.comment}</p>
                 <hr></hr>

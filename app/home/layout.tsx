@@ -5,27 +5,27 @@ import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 export default async function HomeLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
 
-    const user = await currentUser();
+  const user = await currentUser();
 
-    if (!user) {
-        redirect('/'); // if no user, redirect to "/"
-    }
+  if (!user) {
+    redirect('/'); // if no user, redirect to "/"
+  }
 
-    return (
-        <>
-            <div className={`grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] gap-2 h-screen`}>
-                <Header />
-                <Sidebar />
-                <div className={`bg-black rounded-3xl col-span-full md:col-auto`}>
-                    {children}
-                </div>
-                <HeaderMobile />
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className={`grid grid-cols-[auto_1fr] grid-rows-[auto_91%] gap-2 h-screen`}>
+        <Header />
+        <Sidebar />
+        <div className={` relative p-1.5 bg-black flex justify-center items-center rounded-3xl col-span-full md:col-auto min-h-[500px] overflow-auto `}>
+          {children}
+        </div>
+        <HeaderMobile />
+      </div>
+    </>
+  )
 }

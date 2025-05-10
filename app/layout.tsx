@@ -11,6 +11,9 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import connectDB from "@/mongoDB/db";
 
 // derdyrdyred
 
@@ -24,6 +27,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <ClerkProvider>
       <html lang="en">

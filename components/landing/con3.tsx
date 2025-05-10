@@ -4,7 +4,7 @@ import { FaCheck } from 'react-icons/fa'
 
 export default function con3() {
   return (
-    <section className="bg-black text-white px-[150px] py-[120px] flex justify-center items-center sec4">
+    <section className="bg-black text-white md:px-[60px] lg:px-[150px] md:py-[120px] flex justify-center items-center sec4">
       <div className="bg-black bg-opacity-50 flex flex-col md:flex-row w-full max-w-6xl rounded-lg overflow-hidden">
         {/* Left Side */}
         <motion.div
@@ -48,7 +48,7 @@ export default function con3() {
         </motion.div>
 
         {/* Right Side */}
-        <div className="flex-1 relative min-h-[300px]">
+        <div className="flex-1 relative min-h-[400px]">
           <img
             src="/img/p4.jpg"
             alt="Community member"

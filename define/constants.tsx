@@ -9,35 +9,35 @@ import { BsTools } from 'react-icons/bs';
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: 'Home',
-    path: '/home',
+    path: 'home',
     icon: <HomeIcon width="22px" height="22px" />,
   },
   {
     title: 'Workouts',
-    path: '',
+    path: 'home/workouts/',
     icon: <IoFitness style={{ width: "22px", height: "22px" }} />,
-    submenu: true,
-    subMenuItems: [
-      { title: 'My Workouts', path: 'home/workouts/my-workouts' },
-      { title: 'Workouts', path: 'home/workouts/all-workouts' },
-      { title: 'AI Generator', path: 'home/workouts/generator' },
-    ],
+    // submenu: true,
+    // subMenuItems: [
+    //   { title: 'My Workouts', path: 'home/workouts/my-workouts' },
+    //   { title: 'Workouts', path: 'home/workouts/all-workouts' },
+    //   { title: 'AI Generator', path: 'home/workouts/generator' },
+    // ],
   },
   {
     title: 'Nutrition',
-    path: 'home/Nutrition',
+    path: 'home/nutrition',
     icon: <Calendar width="22px" height="22px" />,
   },
 
   {
     title: 'Tools',
-    path: 'home/tools',
+    path: '',
     icon: <BsTools style={{ width: "22px", height: "22px" }} />,
     submenu: true,
     subMenuItems: [
-      { title: 'Calorie calculator', path: '/settings/account' },
-      { title: 'macro calculator', path: '/settings/privacy' },
-      { title: 'One Rep Max Calculator', path: '/settings/privacy' },
+      { title: 'Calorie calculator', path: 'settings/account' },
+      { title: 'macro calculator', path: 'settings/privacy' },
+      { title: 'One Rep Max Calculator', path: 'settings/privacy' },
     ],
   },
   {

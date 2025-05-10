@@ -7,3 +7,13 @@ export type SideNavItem = {
   submenu?: boolean;
   subMenuItems?: SideNavItem[];
 };
+
+export interface DietData {
+  breakfast: string[],
+  lunch: string[],
+  dinner: string[],
+  weight: number;
+  fats: number;
+  activity: 1 | 2 | 3;
+  vegan: boolean;
+}

@@ -57,7 +57,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <div className="hidden md:block z-20 row-start-2 col-start-1 col-span-1 h-full">
+    <div className="hidden md:block z-20 row-start-2 col-start-1 col-span-1 h-full min-h-[500px]">
       <nav
         className={`
           rounded-3xl h-full flex flex-col bg-gradient-to-r from-[#004AAD] to-[#4a7fb5] border-r shadow-sm 
@@ -89,7 +89,7 @@ export default function Sidebar() {
                   toggleOpen={() => setExpanded(true)}
                 />
               ) : (
-                <Link key={idx} href={item.path}>
+                <Link key={idx} href={`/${item.path}`}>
                   <MemoizedSidebarItem icon={item.icon} text={item.title} />
                 </Link>
               )

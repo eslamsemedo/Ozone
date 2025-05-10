@@ -1,10 +1,11 @@
-import mongoose, { Schema, Types } from "mongoose";
+import mongoose, { Model, Schema, Types } from "mongoose";
+
 
 export interface IUserBase {
-  userId: number;
+  userId: string;
   name: string;
-  workoutPlan: boolean;
-  dietPlan: boolean;
+  workoutPlanId: string[];
+  dietPlanId: Number;
 }
 
 export interface IUser extends Document, IUserBase {
@@ -15,12 +16,16 @@ export interface IUser extends Document, IUserBase {
 
 const UserSchema = new Schema<IUser>(
   {
-    userId: { type: Number, required: true },
+    userId: { type: String, required: true, unique: true },
     name: { type: String, required: true },
+    workoutPlanId: { type: [String], required: true },
+    dietPlanId: { type: Number, required: true },
   },
   {
     timestamps: true,
   }
 );
 
-export const User = mongoose.models.User || mongoose.model<IUser>("User", UserSchema);
+// export const User = mongoose.models.User || mongoose.model<IUser>("User", UserSchema);
+
+export const User: Model<IUser> = (mongoose.models?.User as Model<IUser>) || mongoose.model<IUser>('User', UserSchema);

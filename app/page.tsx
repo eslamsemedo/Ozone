@@ -1,46 +1,46 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react";
-import { useAuth } from "@clerk/nextjs";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Hero from "@/components/landing/hero";
 import Con2 from "@/components/landing/con2";
-import Feedback from "@/components/landing/feedback";
 import Con3 from "@/components/landing/con3";
 import Footer from "@/components/landing/footer";
-
-
+import { useAuth } from "@clerk/nextjs";
+import { checkDatabase } from "./lib/actions";
 
 export default function Home() {
-  const { isLoaded, isSignedIn } = useAuth();
+
   const router = useRouter();
-  const hasRun = useRef(false);
+  const { isLoaded, isSignedIn } = useAuth();
+  
 
   useEffect(() => {
-    if (isLoaded && isSignedIn && !hasRun.current) {
-      hasRun.current = true;
-      myPostSignInFunction();
-      router.push("/home");
+    if (isLoaded && isSignedIn) {
+
+
+      checkDatabase()
+      // router.replace("/home"); // Use replace to avoid adding to history stack
+      router.push("/home"); // Use push to navigate to the home page
     }
   }, [isLoaded, isSignedIn, router]);
 
+  if (!isLoaded || isSignedIn) {
+    // Prevent rendering the page until auth state is determined
+    return null;
+  }
+  // if (!isLoaded) {
+  //   // Prevent rendering the page until auth state is determined
+  //   return null;
+  // }
 
   return (
     <>
       <Hero />
       <Con2 />
       <div className="bg-[url('/img/p3.jpg')] bg-fixed h-[250px] bg-cover"></div>
-      <Feedback />
       <Con3 />
       <Footer />
     </>
   );
-}
-
-// define whatever you need to run:
-function myPostSignInFunction() {
-  console.log("🎉 user just signed in!");
-  // e.g. fetch user profile, track analytics, initialize data…
-  // connectDB();
-
 }

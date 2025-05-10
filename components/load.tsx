@@ -1,16 +1,13 @@
-
 import React from 'react'
 
-export default function loading() {
+export default function load() {
   return (
-    <div className="w-full h-screen flex items-center justify-center min-h-screen bg-black">
+    <div className="w-full h-screen flex items-center justify-center bg-black rounded-3xl">
       <div className="loader">
         <div data-glitch="Loading..." className="glitch">
           Loading...
         </div>
       </div>
-
-      
 
       {/* Inline style tag for the glitch animations and classes */}
       <style>{`

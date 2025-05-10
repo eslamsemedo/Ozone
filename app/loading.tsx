@@ -9,6 +9,7 @@ export default function loading() {
           Loading...
         </div>
       </div>
+    
 
       {/* Inline style tag for the glitch animations and classes */}
       <style>{`
