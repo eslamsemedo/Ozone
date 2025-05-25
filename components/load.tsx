@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function load() {
   return (
-    <div className="w-full h-screen flex items-center justify-center bg-black rounded-3xl">
+    <div className="w-full h-full flex items-center justify-center bg-black rounded-3xl">
       <div className="loader">
         <div data-glitch="Loading..." className="glitch">
           Loading...

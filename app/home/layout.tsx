@@ -18,10 +18,10 @@ export default async function HomeLayout({
 
   return (
     <>
-      <div className={`grid grid-cols-[auto_1fr] grid-rows-[auto_91%] gap-2 h-screen`}>
+      <div className={`grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] gap-2 h-screen`}>
         <Header />
         <Sidebar />
-        <div className={` relative p-1.5 bg-black flex justify-center items-center rounded-3xl col-span-full md:col-auto min-h-[500px] overflow-auto `}>
+        <div className={` relative  bg-black  rounded-3xl col-span-full md:col-auto min-h-[500px] overflow-auto `}>
           {children}
         </div>
         <HeaderMobile />

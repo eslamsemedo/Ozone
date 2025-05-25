@@ -1,8 +1,12 @@
 "use client"
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, Suspense, useEffect, useState } from 'react'
 import { Dumbbell, Calendar, Weight, BarChart3, Layers } from 'lucide-react';
 import { getWorkouts } from '@/app/lib/workout';
 import DropMenu from './uis/dropMenu';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import Load from './load';
+import load from './load';
 
 interface Workout {
   id: number;
@@ -97,16 +101,18 @@ const experienceLevels = {
 
 export default function workouts() {
 
-  const [expanded, setExpanded] = useState(false);
   const [workout, setWorkout] = useState<Workout[]>([])
 
   const [levels, setLevels] = useState<string[]>([])
   const [equipment, setEquipment] = useState<string[]>([])
   const [muscle, setmuscle] = useState<string[]>([])
   const [Goals, setGoals] = useState<string[]>([])
+  const [loading, setLoading] = useState<boolean>();
 
   useEffect(() => {
     let fetchData = async () => {
+      setWorkout([]);
+      setLoading(true);
 
       let params = {
         limit: 9,
@@ -124,97 +130,79 @@ export default function workouts() {
       } catch (error) {
         console.error('Failed to load workouts:', error);
       }
+      setLoading(false);
     }
     fetchData()
-
-    // setWorkout(
-    //   {
-    //     id: 70,
-    //     goalType: {
-    //       id: 1,
-    //       name: "Gain Muscle",
-    //       name_en_us: "Gain Muscle"
-    //     },
-    //     status: "Published",
-    //     name: "Full Body Novice Bodybuilding - Day 1",
-    //     name_en_us: "Full Body Novice Bodybuilding - Day 1",
-    //     slug: "full-body-bodybuilding-workout-day-one",
-    //     description: null,
-    //     description_en_us: null,
-    //     src_image: "https://media.musclewiki.com/media/uploads/full-body-beginner-day-1.jpeg",
-    //     weight: 120,
-    //     difficulty: 4,
-    //     equipment: [2, 3, 4, 10]
-    //   }
-    // )
   }, [equipment, levels, muscle, Goals])
 
 
+  const handleClick = (i: number) => {
+    // const router = useRouter();
+    // router.push(`/${workout[i].slug}`);
+    window.location.href = `/excersice/${workout[i].slug}`
+  }
+
+
+
+
   const WorkoutsComponent = (workout: Workout) => (
-    <>
-      <div>
-        <div className="max-w-md h-full  mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-          <div className="md:flex h-full">
-            <div className="md:shrink-0">
-              <div className="h-48 w-full bg-gray-300 md:h-full md:w-[100px] lg:w-[200px] flex items-center justify-center overflow-hidden">
-                {workout?.src_image ? (
-                  <img
-                    src={workout?.src_image}
-                    alt="Workout thumbnail"
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <Dumbbell size={48} className="text-gray-400" />
-                )}
-              </div>
+    <div className="max-w-md h-full  mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+      <div className="md:flex h-full">
+        <div className="md:shrink-0">
+          <div className="h-48 w-full bg-gray-300 md:h-full md:w-[100px] lg:w-[200px] flex items-center justify-center overflow-hidden">
+            {workout?.src_image ? (
+              <Image
+                src={workout?.src_image}
+                alt="Workout thumbnail"
+                width={300}   // ✅ Set appropriate width
+                height={200}  // ✅ Set appropriate height
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <Dumbbell size={48} className="text-gray-400" />
+            )}
+          </div>
+        </div>
+        <div className="p-6 w-full">
+          <div className="flex items-center">
+            <div className="rounded-full bg-blue-100 p-1">
+              <Dumbbell size={16} className="text-blue-600" />
             </div>
-            <div className="p-6 w-full">
-              <div className="flex items-center">
-                <div className="rounded-full bg-blue-100 p-1">
-                  <Dumbbell size={16} className="text-blue-600" />
-                </div>
-                <span className="ml-2 text-sm font-medium text-blue-600 uppercase tracking-wider">
-                  {workout?.goalType.name}
+            <span className="ml-2 text-sm font-medium text-blue-600 uppercase tracking-wider">
+              {workout?.goalType.name}
+            </span>
+          </div>
+          <h2 className="mt-2 text-xl font-bold text-gray-900">
+            {workout?.name}
+          </h2>
+          <div className="mt-4 grid grid-cols-2 gap-4">
+            <div className="flex items-center">
+              <BarChart3 size={18} className="text-gray-500" />
+              <span className="ml-2 text-sm text-gray-600">
+                Difficulty: {Array(workout?.difficulty).fill('★').join('')}
+              </span>
+            </div>
+          </div>
+          <div className="mt-4">
+            <div className="flex items-center">
+              <Layers size={18} className="text-gray-500" />
+              <span className="ml-2 text-sm font-medium text-gray-700">Equipment:</span>
+            </div>
+            <div className="mt-1 flex flex-wrap gap-2">
+              {workout?.equipment.map(eq => (
+                <span key={eq} className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
+                  {Object.keys(equipmentOptions).find(key => equipmentOptions[key as keyof typeof equipmentOptions] === eq) || `Equipment ${eq}`}
                 </span>
-              </div>
-              <h2 className="mt-2 text-xl font-bold text-gray-900">
-                {workout?.name}
-              </h2>
-              <div className="mt-4 grid grid-cols-2 gap-4">
-                <div className="flex items-center">
-                  <BarChart3 size={18} className="text-gray-500" />
-                  <span className="ml-2 text-sm text-gray-600">
-                    Difficulty: {Array(workout?.difficulty).fill('★').join('')}
-                  </span>
-                </div>
-              </div>
-              <div className="mt-4">
-                <div className="flex items-center">
-                  <Layers size={18} className="text-gray-500" />
-                  <span className="ml-2 text-sm font-medium text-gray-700">Equipment:</span>
-                </div>
-                <div className="mt-1 flex flex-wrap gap-2">
-                  {workout?.equipment.map(eq => (
-                    <span key={eq} className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-gray-100 text-gray-800">
-                      {Object.keys(equipmentOptions).find(key => equipmentOptions[key as keyof typeof equipmentOptions] === eq) || `Equipment ${eq}`}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              {expanded && workout?.description && (
-                <div className="mt-4 text-sm text-gray-600">
-                  <p>{workout.description}</p>
-                </div>
-              )}
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 
   return (
-    <div className='h-[83%] w-full gap-[10px] relative p-[10px]'>
+    <div className='absolute top-[70px] h-[83%] w-full gap-[10px] p-[10px]'>
       <div className='w-full flex justify-end'>
         <div className='flex justify-evenly'>
 
@@ -224,10 +212,23 @@ export default function workouts() {
           <DropMenu menuName="Fitness Goals" menu={Object.keys(fitnessGoals)} allsets={setGoals} />
         </div>
       </div>
+
+      {loading ? (
+        <div className='h-full w-full absolute  flex justify-center items-center'>
+          <Load />
+        </div>
+      ) : workout.length === 0 ? (
+        <div className='h-full w-full absolute flex justify-center items-center text-gray-500'>
+          No workouts found
+        </div>
+      ) : null}
       <div className="h-[83%] w-full grid grid-cols-1 md:grid-cols-2 gap-[10px] relative p-[10px] auto-rows-auto">
 
         {workout.map((w, i) => (
-          <WorkoutsComponent key={i} {...w} />
+          <div className='h-full'
+            key={i} onClick={() => handleClick(i)}>
+            <WorkoutsComponent {...w} />
+          </div>
         ))}
       </div>
     </div>

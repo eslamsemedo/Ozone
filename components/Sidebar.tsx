@@ -39,16 +39,6 @@ export default function Sidebar() {
   const { user } = useUser();
   const [expanded, setExpanded] = useState(true);
 
-  // setExpanded(true);
-
-  // useEffect(() => {
-  //   const isSmallScreen = window.innerWidth <= 768;
-  //   if (isSmallScreen) {
-  //     setExpanded(false); // Collapse sidebar on small screens.
-  //   }
-  // }, []);
-
-  // Memoize the context value to prevent unnecessary re-renders.
   const contextValue = useMemo(() => ({ expanded }), [expanded]);
 
   // useCallback to memoize the toggle handler.
@@ -60,7 +50,7 @@ export default function Sidebar() {
     <div className="hidden md:block z-20 row-start-2 col-start-1 col-span-1 h-full min-h-[500px]">
       <nav
         className={`
-          rounded-3xl h-full flex flex-col bg-gradient-to-r from-[#004AAD] to-[#4a7fb5] border-r shadow-sm 
+          rounded-3xl h-full flex flex-col bg-gradient-to-b from-[#3f9bd8] to-[#0F4C75] border-r shadow-sm 
           transition-all duration-500 ease-in-out
         `}
       >
@@ -158,7 +148,8 @@ const SidebarItem = ({
       {icon}
       <span
         className={`
-          overflow-hidden transition-all duration-500 ease-in-out 
+          overflow-hidden transition-all duration-300 ease-in-out 
+          hover:text-[#004AAD]
           ${expanded ? "w-52 ml-3 opacity-100" : "w-0 opacity-0"}
         `}
       >
@@ -247,7 +238,7 @@ const MenuItemWithSubMenu: React.FC<MenuItemWithSubMenuProps> = ({ item, toggleO
                       relative flex items-center py-2 px-3 my-1
                       font-medium rounded-md cursor-pointer
                       transition-all duration-500 ease-in-out
-                      group hover:bg-indigo-50 text-gray-900
+                      group hover:bg-indigo-50 hover:scale-110 hover:text-[#004AAD]
                     `}
                   >
                     {subItem.title}

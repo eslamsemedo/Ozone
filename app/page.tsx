@@ -8,12 +8,13 @@ import Con3 from "@/components/landing/con3";
 import Footer from "@/components/landing/footer";
 import { useAuth } from "@clerk/nextjs";
 import { checkDatabase } from "./lib/actions";
+import Header from "@/components/Header";
 
 export default function Home() {
 
   const router = useRouter();
   const { isLoaded, isSignedIn } = useAuth();
-  
+
 
   useEffect(() => {
     if (isLoaded && isSignedIn) {
@@ -36,6 +37,9 @@ export default function Home() {
 
   return (
     <>
+      <div className="m-auto w-[80%] sticky z-50 top-1">
+        <Header />
+      </div>
       <Hero />
       <Con2 />
       <div className="bg-[url('/img/p3.jpg')] bg-fixed h-[250px] bg-cover"></div>

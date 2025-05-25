@@ -126,7 +126,9 @@ export async function getWorkouts({
   console.log(url)
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(url,
+      {}
+    );
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
     const data = await res.json();
     return data;
@@ -139,6 +141,22 @@ export async function getWorkouts({
 export async function fetchExcersice(slug: String) {
   try {
     const res = await fetch(`https://musclewiki.com/newapi/workout/originals/workouts/?slug=${slug}`, {
+      method: "GET"
+    });
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    const data = await res.json();
+    console.dir(data, {depth: true})
+    return data;
+    
+  } catch (error) {
+    console.error(error);
+  };
+}
+
+export async function fetchingWorkout(slug: String){
+  try {
+    // console.log(`eslam`)
+    const res = await fetch(`https://musclewiki.com/newapi/exercise/exercises/?slug=${slug}`, {
       method: "GET"
     });
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);

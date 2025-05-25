@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 
 import { SideNavItem } from '@/define/types';
-import { BoxSelect, Calendar, Dumbbell, FolderArchiveIcon, HelpCircle, HomeIcon, MailIcon, Paperclip } from 'lucide-react';
+import { BoxSelect, Calendar, Dumbbell, FolderArchiveIcon, HelpCircle, HomeIcon, MailIcon, Paperclip, ListVideo } from 'lucide-react';
 import { Settings } from 'lucide-react';
 import { IoFitness } from 'react-icons/io5';
 import { BsTools } from 'react-icons/bs';
@@ -35,9 +35,9 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: <BsTools style={{ width: "22px", height: "22px" }} />,
     submenu: true,
     subMenuItems: [
-      { title: 'Calorie calculator', path: 'settings/account' },
-      { title: 'macro calculator', path: 'settings/privacy' },
-      { title: 'One Rep Max Calculator', path: 'settings/privacy' },
+      { title: 'Calorie calculator', path: 'home/tools/calorie-calculator' },
+      { title: 'BMI', path: 'home/tools/BMI' },
+      { title: 'Protien', path: 'home/tools/Protien' },
     ],
   },
   {
@@ -49,6 +49,16 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     title: 'Directory',
     path: 'home/directory',
     icon: <Dumbbell width="22px" height="22px" />,
+  },
+  {
+    title: 'Video Tracking',
+    path: 'home/VideoTracking',
+    icon: <ListVideo width="22px" height="22px" />,
+  },
+  {
+    title: 'Community',
+    path: 'community',
+    icon: <MailIcon width="22px" height="22px" />,
   },
 
 ];

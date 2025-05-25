@@ -28,7 +28,9 @@ export default function con2() {
 
   return (
     <>
-      <div className='flex flex-col lg:flex-row bg-white items-center justify-between py-[40px]  lg:p-[50px] xl:p-[150px]'>
+      <div
+        id='service'
+        className='flex flex-col lg:flex-row bg-[white] items-center justify-between py-[40px]  lg:p-[50px] xl:p-[150px]'>
 
 
         <div className='w-[90%] md:w-[450px] mb-6 md:ml-8 '>
@@ -52,15 +54,15 @@ export default function con2() {
                 <div
                   className={cn(
                     "h-[200px]   group cursor-pointer overflow-hidden relative card rounded-md shadow-xl mx-auto flex flex-col justify-center p-4 border border-transparent dark:border-neutral-800",
-                    "bg-[url(https://images.unsplash.com/photo-1476842634003-7dcca8f832de?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80)] bg-cover",
+                    "bg-[url('/img/fitness2.jpg')] bg-cover",
                     // Preload hover image by setting it in a pseudo-element
-                    "before:bg-[url(https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWlodTF3MjJ3NnJiY3Rlc2J0ZmE0c28yeWoxc3gxY2VtZzA5ejF1NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syEfLvksYQnmM/giphy.gif)] before:fixed before:inset-0 before:opacity-0 before:z-[-1]",
-                    "hover:bg-[url(https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWlodTF3MjJ3NnJiY3Rlc2J0ZmE0c28yeWoxc3gxY2VtZzA5ejF1NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/syEfLvksYQnmM/giphy.gif)]",
+                    "before:bg-[url('/img/fitness1.jpg')] before:fixed before:inset-0 before:opacity-0 before:z-[-1]",
+                    "hover:bg-[url('/img/fitness1.jpg')]",
                     "hover:after:content-[''] hover:after:absolute hover:after:inset-0 hover:after:bg-black hover:after:opacity-50",
                     "transition-all duration-500"
                   )}
                 >
-                  <div className="relative z-50 flex flex-col items-center justify-center gap-3">
+                  <div className="relative z-40 flex flex-col items-center justify-center gap-3">
                     <h1 className="font-bold w-full text-xl md:text-2xl text-gray-50 relative">
                       Background Overlays
                     </h1>

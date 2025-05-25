@@ -1,3 +1,4 @@
+import { SignInButton } from '@clerk/nextjs'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { FaCheck } from 'react-icons/fa'
@@ -32,17 +33,34 @@ export default function con3() {
           </ul>
 
           <div className='flex justify-items-start gap-5 items-center mt-5 text-black'>
+            <SignInButton>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: "linear-gradient(to right, #3f9bd8, #0F4C75)",
+                  color: "#ffffff",
+                  transition: { duration: 0.2 },
+                }}
+                className="bg-gradient-to-r from-[#3f9bd8] to-[#0F4C75] p-4 rounded-tr-[20px] rounded-bl-[20px] cursor-pointer outline-none border-none font-bold w-full md:w-auto"
+              >
+                Start Your Journey
+              </motion.div>
+            </SignInButton>
+
             <motion.button
-              whileHover={{ scale: 1.10, backgroundColor: '#1e2231', color: 'white', transition: { duration: 0.2 } }}  //hover:scale-110 hover:bg-[#1e2231] hover:text-white
-              className=" bg-[#007bff] p-4 rounded-tr-[20px] rounded-bl-[20px] cursor-pointer outline-none border-none font-bold "
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0, transition: { duration: 0.8 } }}
+              whileHover={{
+                scale: 1.1,
+                backgroundColor: "linear-gradient(to right, #0F4C75, #A90001)",
+                color: "#ffffff",
+                transition: { duration: 0.2 },
+              }}
+              className="bg-gradient-to-r from-[#0F4C75] to-[#A90001] p-4 rounded-tr-[20px] rounded-bl-[20px] cursor-pointer outline-none border-none font-bold w-full md:w-auto"
             >
-              Start Your journey
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.10, backgroundColor: '#1e2231', color: 'white', transition: { duration: 0.2 } }}
-              className=" bg-[#ffa500] p-4 rounded-tr-[20px] rounded-bl-[20px] cursor-pointer outline-none border-none font-bold"
-            >
-              Dicsover More
+              Discover More
             </motion.button>
           </div>
         </motion.div>

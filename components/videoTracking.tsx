@@ -17,11 +17,8 @@ export default function videoTracking() {
       {/* Main Dashboard Container */}
       <main className=" max-w-6xl m-auto bg-[#0D1117] rounded-2xl p-8 max-[900px]:p-2 shadow-lg w-full">
         {/* Top Section (Timer + Hero Image) */}
-
         {/* Hero Image */}
-
         <section className="grid grid-cols-2 grid-rows-3 justify-items-center min-[650px]:grid-cols-4 min-[650px]:grid-rows-2 gap-[32px] max-[900px]:gap-[8px]">
-
           <div className="row-span-2 col-span-2 min-[650px]:row-span-2 min-[650px]:col-span-3 bg-gray-800 rounded-xl overflow-hidden flex justify-center items-center w-full max-[900px]:h-[390px]">
             <img
               src="https://images.pexels.com/photos/8860959/pexels-photo-8860959.jpeg?auto=compress&cs=tinysrgb&w=600"
@@ -29,11 +26,9 @@ export default function videoTracking() {
               className="w-full h-full object-cover"
             />
           </div>
-
           {/* Timer Card */}
           <div className="row-span-1 col-span-1 w-full max-w-[300px] max-h-[300px]  bg-[#040e34] rounded-xl ">
             <div className=" flex flex-col text-center items-center justify-center  h-[40%]">
-
               {timerWorkout
                 ? (
                   <h2 className="text-4xl text-[#f6f6f6] mb-1 text-center ">00:00</h2>
@@ -83,10 +78,7 @@ export default function videoTracking() {
             </div>
           </div>
         </section>
-
         {/* Middle Section (Workouts List + Camera Tracking) */}
-
-
       </main>
 
 

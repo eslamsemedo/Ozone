@@ -11,7 +11,6 @@ import { currentUser } from "@clerk/nextjs/server";
 
 
 export async function getDeitPlan(data: DietData) {
-
   let plan: any;
   let brId: string | null = null;
   let luId: string | null = null;
@@ -169,6 +168,7 @@ export async function getDays() {
     throw err;                                 // or return false; based on your needs
   }
 }
+
 export async function deletePlan() {
   try {
     const user = await currentUser();          // Clerk user

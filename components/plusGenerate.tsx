@@ -5,7 +5,11 @@ export default function plusGenerate() {
   return (
     <div className="relative group w-[190px] h-[254px] bg-[#171717] flex justify-center items-center overflow-hidden cursor-pointer shadow-[0_0_3px_1px_rgba(0,0,0,0.533)]">
       <div className="relative z-10 w-[186px] h-[250px] p-5 bg-[#171717] rounded-[5px] flex justify-center items-center text-white overflow-hidden">
-        <span>
+        <span 
+        onClick={()=>{
+          window.location.href = "/generateWorkout"
+        }}
+        >
           <Link href={"/generateWorkout"}>
             <button
               title="Add New"
