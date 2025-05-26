@@ -25,7 +25,7 @@ export async function getDeitPlan(data: DietData) {
       return alert("You already have a plan");
     }
 
-
+    console.log(JSON.stringify(genDeitBody(data)));
     let req = await fetch("https://api.edamam.com/api/meal-planner/v1/9c5b8698/select?type=public", {
       method: "POST",
       headers: {
@@ -106,8 +106,6 @@ export async function getDeitPlan(data: DietData) {
 
 
 export async function getDayMeals(dayNumber: number) {
-
-
   try {
     await connectDB();
     let day = `day_${dayNumber}`;

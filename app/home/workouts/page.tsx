@@ -85,6 +85,7 @@ import { getAllAiPlans } from '@/app/lib/workout';
 import Load from '@/components/load';
 import Workouts from '@/components/workouts';
 import CreateBtn from '@/components/CreateBtn';
+import Link from 'next/link';
 
 export default function Page() {
 
@@ -124,7 +125,7 @@ export default function Page() {
   if (loading) return <Load />;
 
   return (
-    <div className="flex justify-center items-center relative bg-gradient-to-br from-[#ffffff] to-[#0F4C75]">
+    <div className="flex h-full overflow-auto justify-center items-center relative bg-gradient-to-br from-[#000000] to-[#0F4C75]">
       <Tabs
         classCss="absolute top-2 left-2"
         activeTab={activeTab}
@@ -142,7 +143,9 @@ export default function Page() {
               </div>
             )
             :
-            <CreateBtn />
+
+              <CreateBtn herf="/generateWorkout" />
+
           }
         </>
       )}

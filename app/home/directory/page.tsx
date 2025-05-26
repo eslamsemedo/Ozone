@@ -97,29 +97,13 @@ export default function page() {
   )
 
   useEffect(() => {
-    // console.log(values)
-    // let fetching = async () => {
-    //   if (values) {
-    //     let x = await fetchExcersices(values);
-    //     setData(x);
-    //     setActiveFilters(x?.length)
-    //   } else {
-    //     console.warn("Values are undefined, skipping fetch.");
-    //   }
-    // }
-    // fetching()
-
     (async () => {
-      console.log(values)
+      console.log('Fetching exercises with values:', values);
+      // console.log(values)
       try {
         const res = await fetchExcersices(values);
-        console.log('API returned →', res);
+        // console.log('API returned →', res);
 
-        // if your action is using fetch() + .json():
-        //    `res` might already _be_ the array
-        // if you’re using axios or similar:
-        //    `res` might be { data: [...] }
-        // adjust the line below to pull out the right field:
         const arr = Array.isArray(res)
           ? res
           : [];

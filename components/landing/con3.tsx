@@ -1,7 +1,9 @@
 import { SignInButton } from '@clerk/nextjs'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import React from 'react'
 import { FaCheck } from 'react-icons/fa'
+import bg from '@/public/img/p4.jpg'
 
 export default function con3() {
   return (
@@ -67,10 +69,15 @@ export default function con3() {
 
         {/* Right Side */}
         <div className="flex-1 relative min-h-[400px]">
-          <img
-            src="/img/p4.jpg"
+          <Image
+            src={bg}
+            quality={100}
             alt="Community member"
             className="absolute inset-0 w-full h-full object-cover rounded-lg opacity-90"
+            fill
+            priority
+            placeholder="blur"
+            sizes="100vw"
           />
         </div>
       </div>

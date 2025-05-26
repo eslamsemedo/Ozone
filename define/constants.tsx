@@ -41,11 +41,6 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     ],
   },
   {
-    title: 'Articles',
-    path: 'home/articles',
-    icon: <Paperclip width="22px" height="22px" />,
-  },
-  {
     title: 'Directory',
     path: 'home/directory',
     icon: <Dumbbell width="22px" height="22px" />,

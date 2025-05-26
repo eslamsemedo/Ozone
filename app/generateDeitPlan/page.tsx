@@ -50,6 +50,7 @@ export default function Page() {
   const [fats, setFats] = useState<number>(10)
   const [activity, setActivity] = useState<1 | 2 | 3>(1)
   const router = useRouter();
+  const [loading, setLoading] = useState(false)
 
 
 
@@ -57,6 +58,7 @@ export default function Page() {
   const next = () => setStep(s => Math.min(6, s + 1))
   // submit function
   const submit = async () => {
+    setLoading(true);
 
     await getDeitPlan({ breakfast, lunch, dinner, weight, fats, activity, vegan: false } as DietData)
     // revalidatePath('/home/nutrition')
@@ -73,6 +75,23 @@ export default function Page() {
     step === 1 ? setBreakfast :
       step === 2 ? setLunch :
         setDinner
+
+  // if (loading) return <Load />;
+  if (loading) return (
+    <div className="flex items-center justify-center min-h-screen bg-black text-white  ">
+      <span className="text-2xl animate-pulse tracking-widest flex flex-col items-center gap-4">
+        
+      
+      {/* <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-[#2269d4]"></div> */} 
+      <div className="flex flex-row gap-2">
+        <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce"></div>
+        <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.3s]"></div>
+        <div className="w-4 h-4 rounded-full bg-blue-700 animate-bounce [animation-delay:-.5s]"></div>
+      </div>
+      <span className=''>Generating</span>
+      </span>
+    </div>
+  )
 
   return (
     <div className="bg-black text-white font-medium min-h-screen flex flex-col items-center w-full">
@@ -145,12 +164,12 @@ export default function Page() {
 
         {step >= 6
           ? (
-              <button
-                onClick={submit}
-                className="w-[210px] max-[600px]:w-[80%] h-[60px] text-xl text-white bg-[#2D2D2F] border-gray-700 border rounded-lg hover:scale-105 transition"
-              >
-                Finish
-              </button>
+            <button
+              onClick={submit}
+              className="w-[210px] max-[600px]:w-[80%] h-[60px] text-xl text-white bg-[#2D2D2F] border-gray-700 border rounded-lg hover:scale-105 transition"
+            >
+              Finish
+            </button>
           )
           : (
             <button
@@ -269,7 +288,7 @@ function OptionInput({ label, unit, value, onChange }: NumberInputProps) {
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Activity" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className='bg-[#3a3a3e] text-white'>
             <SelectItem value="1" >Sedentary (little/no exercise)</SelectItem>
             <SelectItem value="2">Sedentary (little/no exercise)</SelectItem>
             <SelectItem value="3">Very Active (hard training daily)</SelectItem>

@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Load from './load';
 import load from './load';
+import Link from 'next/link';
 
 interface Workout {
   id: number;
@@ -136,17 +137,8 @@ export default function workouts() {
   }, [equipment, levels, muscle, Goals])
 
 
-  const handleClick = (i: number) => {
-    // const router = useRouter();
-    // router.push(`/${workout[i].slug}`);
-    window.location.href = `/excersice/${workout[i].slug}`
-  }
-
-
-
-
   const WorkoutsComponent = (workout: Workout) => (
-    <div className="max-w-md h-full  mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+    <div className="max-w-md h-full  mx-auto bg-white rounded-xl shadow-md md:max-w-2xl">
       <div className="md:flex h-full">
         <div className="md:shrink-0">
           <div className="h-48 w-full bg-gray-300 md:h-full md:w-[100px] lg:w-[200px] flex items-center justify-center overflow-hidden">
@@ -225,10 +217,9 @@ export default function workouts() {
       <div className="h-[83%] w-full grid grid-cols-1 md:grid-cols-2 gap-[10px] relative p-[10px] auto-rows-auto">
 
         {workout.map((w, i) => (
-          <div className='h-full'
-            key={i} onClick={() => handleClick(i)}>
+          <Link href={`/excersice/${workout[i].slug}`} className='h-full' key={i}>
             <WorkoutsComponent {...w} />
-          </div>
+          </Link>
         ))}
       </div>
     </div>

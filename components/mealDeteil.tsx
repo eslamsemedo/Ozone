@@ -173,12 +173,13 @@ export default function mealDeteil({
               {/* Key nutrients */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 {keyNutrients.map((nutrient) => (
+                  // console.log(String(Number(nutrient.value)/Number(recipe.yield)))
                   <div key={nutrient.label} className="bg-gray-50 p-3 rounded-lg">
-                    <div className="text-2xl font-bold">{nutrient.value}</div>
+                    <div className="text-2xl font-bold">{String((parseInt(nutrient.value)/parseInt(recipe.yield)).toFixed(1))}</div>
                     <div className="text-sm text-gray-600">{nutrient.label}</div>
-                    {nutrient.percent && (
+                    {/* {nutrient.percent && (
                       <div className="text-xs text-gray-500 mt-1">{nutrient.percent}g Daily Value</div>
-                    )}
+                    )} */}
                   </div>
                 ))}
               </div>

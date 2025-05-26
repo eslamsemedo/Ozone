@@ -1,11 +1,12 @@
 
+import Link from 'next/link';
 import { useState } from 'react';
 interface onclick {
-  onClick?: () => void;
+  herf: string;
 }
 
 
-export default function PulsingButton({ onClick }: onclick) {
+export default function PulsingButton({ herf }: onclick) {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -15,19 +16,21 @@ export default function PulsingButton({ onClick }: onclick) {
     <div className="flex justify-center items-center h-[500px] w-full bg-gradient-radial from-blue-950 to-black overflow-hidden font-sans">
       <div className="relative flex justify-center items-center">
         {/* Pulsing rings */}
-        <div className="absolute w-52 h-52 rounded-full border-2 border-cyan-400 opacity-60 shadow-lg shadow-cyan-400 animate-pulse-1"></div>
-        <div className="absolute w-52 h-52 rounded-full border-2 border-cyan-400 opacity-60 shadow-lg shadow-cyan-400 animate-pulse-2"></div>
-        <div className="absolute w-52 h-52 rounded-full border-2 border-cyan-400 opacity-60 shadow-lg shadow-cyan-400 animate-pulse-3"></div>
+        <div className="absolute w-52 h-52 rounded-full border-2 border-[#39a5ed] opacity-60 shadow-lg shadow-[#39a5ed] animate-pulse-1"></div>
+        <div className="absolute w-52 h-52 rounded-full border-2 border-[#39a5ed] opacity-60 shadow-lg shadow-[#39a5ed] animate-pulse-2"></div>
+        <div className="absolute w-52 h-52 rounded-full border-2 border-[#39a5ed] opacity-60 shadow-lg shadow-[#39a5ed] animate-pulse-3"></div>
         
         {/* Center button */}
+        <Link href={herf} className="relative z-20">
         <button
-          className={`relative z-10 px-12 py-4 text-xl text-cyan-400 bg-black bg-opacity-50 border-2 border-cyan-400 rounded-full shadow-lg shadow-cyan-400 cursor-pointer transition-all duration-300 backdrop-blur-md ${isHovered ? 'scale-105 bg-opacity-70' : ''}`}
+          className={`relative z-10 px-12 py-4 text-xl text-[#39a5ed] bg-black bg-opacity-50 border-2 border-[#39a5ed] rounded-full shadow-lg shadow-[#39a5ed] cursor-pointer transition-all duration-300 backdrop-blur-md ${isHovered ? 'scale-105 bg-opacity-70' : ''}`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          onClick={onClick}
+          // onClick={onClick}
         >
           GENERATE NOW
         </button>
+        </Link>
       </div>
       
       {/* Add Tailwind keyframes and custom animations */}
