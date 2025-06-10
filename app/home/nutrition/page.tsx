@@ -94,13 +94,13 @@ export default function page() {
     return (
       
       <div
-        className="h-full flex flex-col justify-center items-center text-[#6c94d9] bg-gradient-to-br from-[#000000] to-[#0F4C75]  font-sans rounded-3xl "
+        className="h-full relative flex flex-col justify-center items-center text-[#6c94d9] bg-gradient-to-br from-[#000000] to-[#0F4C75]  font-sans rounded-3xl "
         // style={{ background: "radial-gradient(circle, #0F4C75, #000000)" }}
       >
         <Link href="/generateDeitPlan">
           <button
             onClick={() => reGeneratePlan()}
-            className="fixed bottom-5 right-5 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300"
+            className="absolute top-5 right-5 bg-[#195882] text-white p-3 rounded-full shadow-lg hover:bg-[#608dab] transition-all duration-300"
           >
             Re-generate
           </button>

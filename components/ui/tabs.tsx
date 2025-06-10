@@ -1,58 +1,66 @@
 "use client"
-import { motion } from 'framer-motion'
-import React, { useState } from 'react'
 
+import * as React from "react"
+import * as TabsPrimitive from "@radix-ui/react-tabs"
 
-const TAPS = ["AI PLans", "All Workouts"] as const;
+import { cn } from "@/lib/utils"
 
-
-export default function tabs(
-  { classCss, activeTab, setActiveTab }:
-    { classCss: string, activeTab: number, setActiveTab: React.Dispatch<React.SetStateAction<any>> }
-) {
-  // const [activeTab, setActiveTab] = useState<number>(0);
-  const tabWidth = 118;
+function Tabs({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Root>) {
   return (
-    <div className={classCss}>
-      <div className="relative w-[236px] flex items-center justify-between gap-1 overflow-x-auto rounded-xl bg-neutral-100 px-2 py-1 shadow-lg dark:bg-neutral-800 no-scrollbar">
-        {/* ── Animated slide bar (behind tabs) ───────── */}
-        <motion.div
-          layout
-          className="flex items-center justify-center  pointer-events-none absolute top-0 left-0 h-full rounded-4xl bg-neutral-300/50 dark:bg-neutral-700/60 transition duration-300 ease-in-out"
-          style={{ width: tabWidth, translateX: `${activeTab * tabWidth}px` }}
-          
-        >
-          {/* ── Top & bottom accent bars (optional) ─────── */}
-          <motion.div
-            layout
-            className="pointer-events-none absolute h-1 w-[80%] rounded-b-lg bg-neutral-900 dark:bg-white"
-            style={{ top: 0 }}
-            transition={{ type: "spring", stiffness: 500, damping: 40 }}
-          />
-          <motion.div
-            layout
-            className="pointer-events-none absolute h-1 w-[80%] rounded-t-lg bg-neutral-900 dark:bg-white"
-            style={{ bottom: 0 }}
-            transition={{ type: "spring", stiffness: 500, damping: 40 }}
-          />
-        </motion.div>
-
-
-        {/* ── Tab buttons ─────────────────────────────── */}
-        {TAPS.map((label, i) => (
-          <button
-            key={i}
-            onClick={() => setActiveTab(i)}
-            className={`relative text-center z-10 min-w-[100px] select-none whitespace-nowrap py-3 text-sm font-medium transition-colors ${activeTab === i ? "text-white" : "text-neutral-900 dark:text-neutral-100"
-              }`}
-          >
-            {label}
-          </button>
-        ))}
-
-        {/* ── Theme switcher ─────────────────────────── */}
-
-      </div>
-    </div>
+    <TabsPrimitive.Root
+      data-slot="tabs"
+      className={cn("flex flex-col gap-2", className)}
+      {...props}
+    />
   )
 }
+
+function TabsList({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.List>) {
+  return (
+    <TabsPrimitive.List
+      data-slot="tabs-list"
+      className={cn(
+        "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TabsTrigger({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
+  return (
+    <TabsPrimitive.Trigger
+      data-slot="tabs-trigger"
+      className={cn(
+        "data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function TabsContent({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Content>) {
+  return (
+    <TabsPrimitive.Content
+      data-slot="tabs-content"
+      className={cn("flex-1 outline-none", className)}
+      {...props}
+    />
+  )
+}
+
+export { Tabs, TabsList, TabsTrigger, TabsContent }

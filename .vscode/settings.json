@@ -19,5 +19,6 @@
   // Tailwind CSS settings (optional regex for custom class names)
   "tailwindCSS.experimental.classRegex": [
     "cn\\(([^)]*)\\)"
-  ]
+  ],
+  "files.autoSave": "onWindowChange"
 }

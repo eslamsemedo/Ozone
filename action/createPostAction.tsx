@@ -1,8 +1,9 @@
 'use server'
 
+import { PostFormData } from "@/components/community/postForm"
 // import { AddPostRequestBody } from "@/app/api/posts/route"
-import { uploadImage } from "@/lib/uploadImage"
-import { IPostDocument, Post } from "@/mongoDB/models/post"
+// import { uploadImage } from "@/lib/uploadImage"
+import { Post } from "@/mongoDB/models/post"
 import { IUser } from "@/types/user"
 import { currentUser } from "@clerk/nextjs/server"
 import { revalidatePath } from "next/cache"
@@ -13,11 +14,11 @@ export interface AddPostRequestBody {
   imageUrl?: string | null;
 }
 
-export default async function createPostAction(formData: FormData) {
+export default async function createPostAction(formData: PostFormData) {
   const user = await currentUser()
 
-  const postInput = formData.get("postInput") as string
-  const image = formData.get("image") as File
+  const postInput = formData.textInput
+  const image = formData.image
   // let image: string | undefined
   let image_url = undefined;
 
@@ -41,18 +42,18 @@ export default async function createPostAction(formData: FormData) {
 
 
   try {
-    if (image.size > 0) {
+    if (image) {
       try {
         console.log("loading file")
         // 1. upload image
-        const result = await uploadImage(image);
-        image_url = result.url || null
+        // const result = await uploadImage(image);
+        // image_url = image
 
         // 2. create post in database
         const postBody: AddPostRequestBody = {
           user: userDB,
           text: postInput,
-          imageUrl: image_url
+          imageUrl: image
         }
         await Post.create(postBody)
 
@@ -70,7 +71,6 @@ export default async function createPostAction(formData: FormData) {
         text: postInput,
       }
       await Post.create(postBody)
-
     }
   } catch (error) {
     console.log("error in create post", error)

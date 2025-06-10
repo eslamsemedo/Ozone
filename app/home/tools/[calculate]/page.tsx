@@ -210,13 +210,13 @@ management and overall wellness.';
   return (
     <>
       <div className='h-full w-full'>
-        <div className="relative min-h-[686px] p-8 rounded-2xl shadow-[0_0_30px_rgba(56,103,214,0.3)] bg-[rgba(17,33,65,0.7)] backdrop-blur-md border border-[rgba(56,103,214,0.3)]">
+        <div className="relative h-fit p-8 rounded-3xl shadow-[0_0_30px_rgba(56,103,214,0.3)] bg-gradient-to-br from-[#000000] to-[#0F4C75] backdrop-blur-md border border-[rgba(56,103,214,0.3)]">
           <h1 className="text-center mb-8 text-white font-bold tracking-wide relative inline-block w-full after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:transform after:translate-x-[-50%] after:w-20 after:h-[3px] after:bg-gradient-to-r after:from-[#4a80f5] after:to-[#1a44a7] after:rounded">
             <i className="fas fa-dumbbell mr-2"></i> {calc} Calculator
           </h1>
 
           <div className="mb-6 text-white">
-            <label className="block mb-2 font-semibold text-[#4a80f5] items-center">
+            <label className="block mb-2 font-semibold text-[#BBE1FA] items-center">
               <i className="fas fa-venus-mars mr-2"></i> Gender
             </label>
             <div className="flex gap-4">
@@ -238,7 +238,7 @@ management and overall wellness.';
           </div>
 
           <div className="mb-6">
-            <label htmlFor="age" className="block mb-2 font-semibold text-[#4a80f5] items-center">
+            <label htmlFor="age" className="block mb-2 font-semibold text-[#BBE1FA] items-center">
               <i className="fas fa-birthday-cake mr-2"></i> Age (years)
             </label>
             <div className="relative py-2">
@@ -258,7 +258,7 @@ management and overall wellness.';
           </div>
 
           <div className="mb-6">
-            <label htmlFor="height" className="block mb-2 font-semibold text-[#4a80f5] items-center">
+            <label htmlFor="height" className="block mb-2 font-semibold text-[#BBE1FA] items-center">
               <i className="fas fa-ruler-vertical mr-2"></i> Height (cm)
             </label>
             <div className="relative py-2">
@@ -278,7 +278,7 @@ management and overall wellness.';
           </div>
 
           <div className="mb-6">
-            <label htmlFor="weight" className="block mb-2 font-semibold text-[#4a80f5]  items-center">
+            <label htmlFor="weight" className="block mb-2 font-semibold text-[#BBE1FA]  items-center">
               <i className="fas fa-weight mr-2"></i> Weight (kg)
             </label>
             <div className="relative py-2">
@@ -300,7 +300,7 @@ management and overall wellness.';
             calc == "Protien" && (
               <>
                 <div className="my-6">
-                  <label htmlFor="activity" className="block mb-2 font-semibold text-[#4a80f5]">Activity:</label>
+                  <label htmlFor="activity" className="block mb-2 font-semibold text-[#BBE1FA]">Activity:</label>
                   <select
                     id="protein"
                     value={activity}
@@ -322,7 +322,7 @@ management and overall wellness.';
             calc == "calorie-calculator" && (
               <>
                 <div className="my-6">
-                  <label htmlFor="activity" className="block mb-2 font-semibold text-[#4a80f5]">Activity:</label>
+                  <label htmlFor="activity" className="block mb-2 font-semibold text-[#BBE1FA]">Activity:</label>
                   <select
                     id="activity"
                     value={activity}
@@ -346,7 +346,7 @@ management and overall wellness.';
 
           <button
             onClick={handleSubmit}
-            className="block w-full py-4 bg-gradient-to-r from-[#4a80f5] to-[#1a44a7] text-white border-none rounded-lg text-base font-bold cursor-pointer transition-all duration-300 mt-8 uppercase tracking-wide shadow-[0_4px_15px_rgba(56,103,214,0.4)] hover:translate-y-[-3px] hover:shadow-[0_6px_20px_rgba(56,103,214,0.6)]"
+            className="block w-full py-4 bg-gradient-to-r from-[#0F4C75] to-[#102965] text-white border-none rounded-lg text-base font-bold cursor-pointer transition-all duration-300 mt-8 uppercase tracking-wide shadow-[0_4px_15px_rgba(56,103,214,0.4)] hover:translate-y-[-3px] hover:shadow-[0_6px_20px_rgba(56,103,214,0.6)]"
           >
             <i className="fas fa-calculator mr-2"></i> Calculate {calc}
           </button>

@@ -35,7 +35,7 @@ export default async function Home() {
       <section className=" hidden xl:inline justify-center col-span-2 h-28 pl-4">
 
         <div className="bg-gray-800 text-white text-lg font-semibold px-6 py-4 rounded-lg shadow-lg">
-          Developed by Eslam Mokhtar
+          Developed by Ozone Team
         </div>
       </section>
     </div>

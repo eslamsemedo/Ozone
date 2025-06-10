@@ -115,8 +115,8 @@ export default function Features() {
 
   return (
     <section
-      id="service"
-      className="flex flex-col items-center justify-between bg-white py-10 lg:flex-row lg:px-12 xl:px-40 xl:py-20"
+      id="about"
+      className="flex flex-col items-center justify-between bg-[#cfcfcf] py-10 lg:flex-row lg:px-12 xl:px-40 xl:py-20"
     >
       {/* ▸ Left intro panel */}
       <div className="mb-6 w-[90%] md:ml-8 md:w-[450px]">
@@ -134,7 +134,7 @@ export default function Features() {
       </div>
 
       {/* ▸ Feature cards grid */}
-      <div className="m-5 grid w-full max-w-xl grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-4 md:w-1/2">
+      <div className="m-5 grid p-4  w-full max-w-xl grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-4 md:w-1/2">
         {info.map((item, i) => (
           <motion.article
             key={i}

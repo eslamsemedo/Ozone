@@ -4,7 +4,21 @@ import { AIPlan } from "@/mongoDB/models/AIPlan";
 import { User } from "@/mongoDB/models/User";
 import { currentUser } from "@clerk/nextjs/server";
 
-export async function generateWorkoutPlan() {
+export async function generateWorkoutPlan({
+  gender,
+  age,
+  goal,
+  fitLevel,
+  equipment_id_list,
+  muscles_id_list
+}: {
+  gender: "M" | "F";
+  age: number;
+  goal: number;
+  fitLevel: number;
+  equipment_id_list: number[];
+  muscles_id_list: number[];
+}) {
   let plan: any;
   try {
     await connectDB();
@@ -13,12 +27,12 @@ export async function generateWorkoutPlan() {
     if (!loginUser) return;
 
     const requestBody: any = {
-      equipment_id_list: [1, 2, 3, 4, 7, 9, 10],
-      muscles_id_list: [18, 5, 2, 4, 7],
-      gender: "M",
-      age: 21,
-      fitness_level: 3,
-      goal: 1,
+      equipment_id_list,
+      muscles_id_list,
+      gender,
+      age,
+      fitness_level: fitLevel,
+      goal,
       mobile: false,
     };
 
@@ -36,7 +50,7 @@ export async function generateWorkoutPlan() {
       let aiplan = await AIPlan.create({
         workoutplan: plan
       })
-      console.log(aiplan._id.toString(), loginUser.id)
+      // console.log(aiplan._id.toString(), loginUser.id)
 
       await User.findOneAndUpdate({ userId: loginUser.id },
         {
@@ -73,6 +87,7 @@ export async function getWorkoutPlan(id: string) {
 
   }
 }
+
 export async function getAllAiPlans() {
   try {
     await connectDB();
@@ -123,7 +138,7 @@ export async function getWorkouts({
   if (goals.length) params.append('goals', goals.join('|')); // be sure '$goals' is actually valid!
 
   const url = `https://musclewiki.com/newapi/workout/originals/workouts/?${params.toString()}`;
-  console.log(url)
+  // console.log(url)
 
   try {
     const res = await fetch(url,
@@ -145,7 +160,7 @@ export async function fetchExcersice(slug: String) {
     });
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
     const data = await res.json();
-    console.dir(data, {depth: true})
+    // console.dir(data, {depth: true})
     return data;
     
   } catch (error) {
@@ -161,7 +176,7 @@ export async function fetchingWorkout(slug: String){
     });
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
     const data = await res.json();
-    console.dir(data, {depth: true})
+    // console.dir(data, {depth: true})
     return data;
     
   } catch (error) {

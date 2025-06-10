@@ -79,9 +79,20 @@ export default function Sidebar() {
                   toggleOpen={() => setExpanded(true)}
                 />
               ) : (
-                <Link key={idx} href={`/${item.path}`}>
-                  <MemoizedSidebarItem icon={item.icon} text={item.title} />
-                </Link>
+                item.path.startsWith("http") ? (
+                  <div
+                  key={idx}
+                    onClick={() => {
+                      window.location.href = item.path;
+                    }}
+                  >
+                    <MemoizedSidebarItem icon={item.icon} text={item.title} />
+                  </div>
+                ) : (
+                  <Link key={idx} href={`/${item.path}`}>
+                    <MemoizedSidebarItem icon={item.icon} text={item.title} />
+                  </Link>
+                )
               )
             )}
           </div>
@@ -89,11 +100,7 @@ export default function Sidebar() {
 
         {/* Footer */}
         <div className={`border-t flex p-3 items-center ${user || "hidden"}`}>
-          {/* <img
-            src={user?.imageUrl}
-            alt="profile picture"
-            className="w-10 h-10 rounded-md"
-          /> */}
+          
           <SignedIn >
             <div className="flex gap-2">
               <UserButton />
@@ -108,9 +115,9 @@ export default function Sidebar() {
           >
             <div className="leading-4">
               <h4 className="font-semibold">{user?.fullName}</h4>
-              <span className="text-xs text-gray-600">{user?.primaryEmailAddress?.toString() || ""}</span>
+              {/* <span className="text-xs text-gray-500">{user?.primaryEmailAddress?.toString() || ""}</span> */}
             </div>
-            <MoreVertical size={20} />
+            {/* <MoreVertical size={20} /> */}
           </div>
         </div>
       </nav>
@@ -230,19 +237,36 @@ const MenuItemWithSubMenu: React.FC<MenuItemWithSubMenuProps> = ({ item, toggleO
             >
               {item.subMenuItems?.map((subItem, subIdx) => (
                 <MenuItem key={subIdx}>
-                  <Link
-                    href={`/${subItem.path}`}
-                    onClick={toggleOpen}
-                    className={`
+                  {subItem.path.startsWith("http") ? (
+                    <a
+                      href={subItem.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`
                       ${subItem.path === pathname ? "font-bold" : ""}
                       relative flex items-center py-2 px-3 my-1
                       font-medium rounded-md cursor-pointer
                       transition-all duration-500 ease-in-out
                       group hover:bg-indigo-50 hover:scale-110 hover:text-[#004AAD]
                     `}
-                  >
-                    {subItem.title}
-                  </Link>
+                    >
+                      {subItem.title}ww
+                    </a>
+                  ) : (
+                    <Link
+                      href={`/${subItem.path}`}
+                      onClick={toggleOpen}
+                      className={`
+                        ${subItem.path === pathname ? "font-bold" : ""}
+                        relative flex items-center py-2 px-3 my-1
+                        font-medium rounded-md cursor-pointer
+                        transition-all duration-500 ease-in-out
+                        group hover:bg-indigo-50 hover:scale-110 hover:text-[#004AAD]
+                      `}
+                    >
+                      {subItem.title}
+                    </Link>
+                  )}
                 </MenuItem>
               ))}
             </motion.div>

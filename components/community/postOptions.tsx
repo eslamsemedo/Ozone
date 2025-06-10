@@ -99,10 +99,10 @@ export default function PostOptions({ postId, post }: { postId: string, post: IP
         </div>
       </div>
 
-      <div className="flex p-2 justify-between px-2 border-t">
+      <div className="flex p-2 justify-evenly px-2 border-t">
         <Button
           variant="ghost"
-          className="postButton"
+          className="postButton hover:text-[#4881c2] hover:fill-[#4881c2] transition-colors duration-300 cursor-pointer"
           onClick={likeOrUnlikePost}
         >
           {/* If user has liked the post, show filled thumbs up icon */}
@@ -114,27 +114,19 @@ export default function PostOptions({ postId, post }: { postId: string, post: IP
 
         <Button
           variant="ghost"
-          className="postButton"
+          className="postButton hover:text-[#47816c] hover:fill-[#47816c] transition-colors duration-300 cursor-pointer"
           onClick={() => setIsCommentsOpen(!isCommentsOpen)}
         >
           <MessageCircle
             className={cn(
               "mr-1",
-              isCommentsOpen && "text-gray-600 fill-gray-600"
+              isCommentsOpen && "text-[#47816c] fill-[#47816c]"
             )}
           />
           Comment
         </Button>
 
-        <Button variant="ghost" className="postButton">
-          <Repeat2 className="mr-1" />
-          Repost
-        </Button>
-
-        <Button variant="ghost" className="postButton">
-          <Send className="mr-1" />
-          Send
-        </Button>
+      
       </div>
 
       {isCommentsOpen && (

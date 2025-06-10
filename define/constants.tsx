@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 
 import { SideNavItem } from '@/define/types';
-import { BoxSelect, Calendar, Dumbbell, FolderArchiveIcon, HelpCircle, HomeIcon, MailIcon, Paperclip, ListVideo } from 'lucide-react';
+import { BoxSelect, Calendar, Dumbbell, FolderArchiveIcon, HelpCircle, HomeIcon, MailIcon, Paperclip, ListVideo, ShieldUser } from 'lucide-react';
 import { Settings } from 'lucide-react';
 import { IoFitness } from 'react-icons/io5';
 import { BsTools } from 'react-icons/bs';
@@ -47,13 +47,23 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
   },
   {
     title: 'Video Tracking',
-    path: 'home/VideoTracking',
+    path: 'http://localhost:5173/',
     icon: <ListVideo width="22px" height="22px" />,
   },
   {
     title: 'Community',
     path: 'community',
     icon: <MailIcon width="22px" height="22px" />,
+  },
+  {
+    title: 'sensor detection',
+    path: 'https://sensor-ozone-aswv.vercel.app/',
+    icon: <Icon icon="mdi:bluetooth" width="22px" height="22px" />,
+  },
+  {
+    title: 'private coaches',
+    path: 'coaches',
+    icon: <ShieldUser width="22px" height="22px" />,
   },
 
 ];

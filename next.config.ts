@@ -7,8 +7,9 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "10mb", // Set limit to 10MB (adjust as needed)
     },
   },
+  
   images: {
-    domains: ['media.musclewiki.com'],
+    domains: ['media.musclewiki.com', 'res.cloudinary.com', 'picsum.photos'],
     remotePatterns: [
       {
         protocol: 'https',

@@ -138,7 +138,7 @@ export default function workouts() {
 
 
   const WorkoutsComponent = (workout: Workout) => (
-    <div className="max-w-md h-full  mx-auto bg-white rounded-xl shadow-md md:max-w-2xl">
+    <div className="max-w-md h-full  mx-auto bg-[#eeeeee] rounded-xl shadow-md md:max-w-2xl">
       <div className="md:flex h-full">
         <div className="md:shrink-0">
           <div className="h-48 w-full bg-gray-300 md:h-full md:w-[100px] lg:w-[200px] flex items-center justify-center overflow-hidden">
@@ -196,7 +196,7 @@ export default function workouts() {
   return (
     <div className='absolute top-[70px] h-[83%] w-full gap-[10px] p-[10px]'>
       <div className='w-full flex justify-end'>
-        <div className='flex justify-evenly'>
+        <div className='flex  flex-wrap gap-[10px] items-center justify-center'>
 
           <DropMenu menuName="Experience Levels" menu={Object.keys(experienceLevels)} allsets={setLevels} />
           <DropMenu menuName="Equipment" menu={Object.keys(equipmentOptions)} allsets={setEquipment} />

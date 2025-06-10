@@ -78,7 +78,7 @@
 
 import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { useRouter } from 'next/navigation';
-import Tabs from '@/components/ui/tabs';
+import Tabs from '@/components/tabs';
 import WorkoutCard from '@/components/workoutCard';
 import PlusGenerate from '@/components/plusGenerate';
 import { getAllAiPlans } from '@/app/lib/workout';
@@ -127,7 +127,7 @@ export default function Page() {
   return (
     <div className="flex h-full overflow-auto justify-center items-center relative bg-gradient-to-br from-[#000000] to-[#0F4C75]">
       <Tabs
-        classCss="absolute top-2 left-2"
+        classCss="absolute top-2 left-2 "
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       />

@@ -7,8 +7,15 @@ import bg from '@/public/img/p4.jpg'
 
 export default function con3() {
   return (
-    <section className="bg-black text-white md:px-[60px] lg:px-[150px] md:py-[120px] flex justify-center items-center sec4">
-      <div className="bg-black bg-opacity-50 flex flex-col md:flex-row w-full max-w-6xl rounded-lg overflow-hidden">
+    <section
+      id="service"
+      className="bg-black text-white md:px-[60px] lg:px-[150px] md:py-[120px] flex justify-center relative items-center sec4">
+
+
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-[#0F162A] to-transparent"></div>
+        </div>
+      <div className="bg-black bg-opacity-50 flex flex-col md:flex-row w-full max-w-6xl rounded-lg  overflow-hidden">
         {/* Left Side */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}

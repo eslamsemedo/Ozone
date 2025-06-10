@@ -2,7 +2,7 @@
 import { fetchExcersices } from '@/app/lib/directory';
 import React, { useEffect, useState } from 'react'
 
-const obj = {
+export const muscles = {
   1: "Biceps",
   16: "Long Head Bicep",
   17: "Short Head Bicep",
@@ -53,7 +53,7 @@ const obj = {
   49: "Neck",
   50: "Groin",
 }
-const equipmentMap = {
+export const equipmentMap = {
   1: "Barbell",
   2: "Dumbbells",
   3: "Bodyweight",
@@ -161,10 +161,10 @@ export default function page() {
 
         <div className="max-w-7xl mx-auto p-4 bg-[#0F4C75] rounded-lg mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Muscles Section */}
-          <div className="bg-white bg-opacity-80 p-6 rounded-lg shadow">
+          <div className="bg-[#eeeeee] bg-opacity-80 p-6 rounded-lg shadow">
             <h2 className="text-xl font-medium text-gray-900 text-center mb-4">Muscles</h2>
             <div className="grid grid-cols-2 gap-2">
-              {Object.entries(obj).map(([key, muscle]) => (
+              {Object.entries(muscles).map(([key, muscle]) => (
                 <div key={`muscle-${key}`} className="grid grid-cols-4 items-center gap-2">
                   <input
                     type="checkbox"
@@ -188,7 +188,7 @@ export default function page() {
           </div>
 
           {/* Equipment Section */}
-          <div className="bg-white bg-opacity-80 p-6 rounded-lg shadow">
+          <div className="bg-[#eeeeee] bg-opacity-80 p-6 rounded-lg shadow">
             <h2 className="text-xl font-medium text-gray-900 text-center mb-4">Equipment</h2>
             <div className="grid grid-cols-2 gap-2">
               {Object.entries(equipmentMap).map(([key, equipment]) => (
@@ -212,7 +212,7 @@ export default function page() {
           </div>
 
           {/* Difficulty Section */}
-          <div className="bg-white bg-opacity-80 p-6 rounded-lg shadow">
+          <div className="bg-[#eeeeee] bg-opacity-80 p-6 rounded-lg shadow">
             <h2 className="text-xl font-medium text-gray-900 text-center mb-4">Difficulty</h2>
             <div className="grid grid-cols-2 gap-2">
               {Object.entries(levels).map(([key, level]) => (
@@ -237,7 +237,7 @@ export default function page() {
         </div>
 
         {/* Results Section */}
-        <div className="max-w-7xl mx-auto bg-white bg-opacity-70 p-6 flex flex-col gap-2 rounded-lg">
+        <div className="max-w-7xl mx-auto bg-[#eeeeee] bg-opacity-70 p-6 flex flex-col gap-2 rounded-lg">
           {/* <div className="grid grid-cols-4 gap-4 mb-4">
             <div className="text-gray-900 font-medium">Exercise</div>
             <div className="text-gray-900 font-medium">Video</div>
@@ -261,7 +261,7 @@ export default function page() {
               return (
                 <div
                   key={i}
-                  className="grid grid-cols-1 min-[550px]:grid-cols-4 gap-4 items-center bg-[#1B262C] p-4 rounded-lg"
+                  className="grid grid-cols-1 min-[550px]:grid-cols-4 gap-4 items-center bg-[#3d5562] p-4 rounded-lg"
                   onClick={() => handleClick(value?.target_url)}
                 >
 
@@ -271,7 +271,7 @@ export default function page() {
                   <div className="text-white flex flex-col  ">
                     {
                       value?.muscles?.map((v: any, i: any) => {
-                        return <span key={i}>{v?.name}</span>
+                        return <span key={i} className=' rounded-full bg-[#28373f] w-fit p-1 m-0.5'>{v?.name}</span>
                       })
                     }
 

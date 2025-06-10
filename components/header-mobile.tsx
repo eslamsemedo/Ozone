@@ -50,7 +50,7 @@ const HeaderMobile = () => {
       ref={containerRef}
     >
       <motion.div
-        className="absolute inset-0 right-0 w-full bg-gradient-to-r from-[#20584d] to-[#1e90ff]"
+        className="absolute inset-0 right-0 w-full bg-gradient-to-r from-[#3f9bd8] to-[#0F4C75]"
         variants={sidebar}
       />
       <motion.ul
@@ -67,9 +67,9 @@ const HeaderMobile = () => {
               ) : (
                 <MenuItem>
                   <Link
-                    href={item.path}
+                    href={`/${item.path}`}
                     onClick={() => toggleOpen()}
-                    className={`flex w-full text-2xl ${item.path === pathname ? 'font-bold' : ''
+                    className={`flex justify-start gap-1  items-center w-full text-2xl ${item.path === pathname ? 'font-bold' : ''
                       }`}
                   >
                     {item.icon}
@@ -95,7 +95,7 @@ export default HeaderMobile;
 const MenuToggle = ({ toggle }: { toggle: any }) => (
   <button
     onClick={toggle}
-    className="pointer-events-auto absolute left-4 top-[22px] z-30"
+    className="pointer-events-auto absolute left-4 top-[34px] z-30"
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
@@ -186,7 +186,7 @@ const MenuItemWithSubMenu: React.FC<MenuItemWithSubMenuProps> = ({
               {item.subMenuItems?.map((subItem, subIdx) => (
                 <MenuItem key={subIdx}>
                   <Link
-                    href={subItem.path}
+                    href={`/${subItem.path}`}
                     onClick={() => toggleOpen()}
                     className={`${subItem.path === pathname ? 'font-bold' : ''}`}
                   >

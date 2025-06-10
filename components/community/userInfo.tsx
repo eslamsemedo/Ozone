@@ -19,7 +19,7 @@ export default async function UserInfo({ posts }: { posts: IPostDocument[] }) {
   );
 
   return (
-    <div className="flex flex-col justify-center items-center bg-white mr-6 rounded-lg border py-4">
+    <div className="flex flex-col justify-center items-center bg-[#eeeeee] mr-6 rounded-lg border py-4">
       <Avatar className="h-16 w-16 mb-5">
         {
           user?.id

@@ -3,7 +3,9 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaTelegramPlane } from 'react-i
 
 export default function footer() {
   return (
-    <footer className="bg-[#000000] text-white py-16 px-4 md:px-24">
+    <footer
+    id="contact"
+     className="bg-[#000000] text-white py-16 px-4 md:px-24">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
         {/* Left Section */}
         <div className="flex-1">

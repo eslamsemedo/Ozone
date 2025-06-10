@@ -61,7 +61,7 @@ export default function mealDeteil({
   return (
     <div className='flex items-center justify-center h-full w-full'>
 
-      <div className="bg-white w-[95%] h-[95%] rounded-lg shadow-lg overflow-auto">
+      <div className="bg-[#eeeeee] w-[95%] h-[95%] rounded-lg shadow-lg overflow-auto">
         <button
           onClick={() => onclose(null)}
           className=' absolute  right-7 cursor-pointer text-[#000] z-50'>
@@ -84,22 +84,22 @@ export default function mealDeteil({
         </div>
 
         {/* Recipe Meta Info */}
-        <div className="p-6 bg-yellow-50">
+        <div className="p-6 bg-[#eeeeee]">
           <div className="flex flex-wrap gap-4 justify-between">
             <div className="flex items-center">
-              <Clock className="w-5 h-5 mr-2 text-yellow-600" />
+              <Clock className="w-5 h-5 mr-2 text-[#0F4C75]" />
               <span>{recipe.totalTime > 0 ? `${recipe.totalTime} mins` : 'Time not specified'}</span>
             </div>
             <div className="flex items-center">
-              <Users className="w-5 h-5 mr-2 text-yellow-600" />
+              <Users className="w-5 h-5 mr-2 text-[#0F4C75]" />
               <span>Serves {recipe.yield}</span>
             </div>
             <div className="flex items-center">
-              <Tag className="w-5 h-5 mr-2 text-yellow-600" />
+              <Tag className="w-5 h-5 mr-2 text-[#0F4C75]" />
               <span>{recipe.dishType?.[0] || 'Not specified'}</span>
             </div>
             <div className="flex items-center">
-              <BookOpen className="w-5 h-5 mr-2 text-yellow-600" />
+              <BookOpen className="w-5 h-5 mr-2 text-[#0F4C75]" />
               <span>{recipe.cuisineType?.[0] || 'Not specified'}</span>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function mealDeteil({
           <nav className="flex">
             <button
               className={`px-4 py-3 font-medium text-sm border-b-2 ${activeTab === 'ingredients'
-                ? 'border-yellow-500 text-yellow-600'
+                ? 'border-[#0F4C75] text-[#15689f]'
                 : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
               onClick={() => setActiveTab('ingredients')}
@@ -119,7 +119,7 @@ export default function mealDeteil({
             </button>
             <button
               className={`px-4 py-3 font-medium text-sm border-b-2 ${activeTab === 'nutrition'
-                ? 'border-yellow-500 text-yellow-600'
+                ? 'border-[#0F4C75] text-[#15689f]'
                 : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
               onClick={() => setActiveTab('nutrition')}
@@ -128,7 +128,7 @@ export default function mealDeteil({
             </button>
             <button
               className={`px-4 py-3 font-medium text-sm border-b-2 ${activeTab === 'health'
-                ? 'border-yellow-500 text-yellow-600'
+                ? 'border-[#0F4C75] text-[#15689f]'
                 : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
               onClick={() => setActiveTab('health')}
@@ -146,7 +146,7 @@ export default function mealDeteil({
               <ul className="space-y-2">
                 {recipe.ingredientLines.map((ingredient: string, index: number) => (
                   <li key={index} className="flex items-start">
-                    <span className="inline-block w-3 h-3 rounded-full bg-yellow-500 mt-1.5 mr-3"></span>
+                    <span className="inline-block w-3 h-3 rounded-full bg-[#0F4C75] mt-1.5 mr-3"></span>
                     <span>{ingredient.replace(/^\*\s*/, '')}</span>
                   </li>
                 ))}
@@ -156,7 +156,7 @@ export default function mealDeteil({
                   href={recipe.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition"
+                  className="inline-flex items-center px-4 py-2 bg-[#0F4C75] text-white rounded-md hover:bg-[#15689f] transition"
                 >
                   View Full Recipe Instructions
                 </a>
@@ -188,7 +188,7 @@ export default function mealDeteil({
               <div>
                 <button
                   onClick={() => setShowFullNutrition(!showFullNutrition)}
-                  className="flex items-center text-yellow-600 font-medium mb-4"
+                  className="flex items-center text-[#0F4C75] font-medium mb-4"
                 >
                   {showFullNutrition ? 'Hide Details' : 'Show More Nutrition Facts'}
                   {showFullNutrition ? <ChevronUp className="ml-1 w-4 h-4" /> : <ChevronDown className="ml-1 w-4 h-4" />}
@@ -272,7 +272,7 @@ export default function mealDeteil({
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 px-6 py-3">
+        <div className="bg-[#eeeeee] px-6 py-3">
           <div className="flex items-center justify-end">
             <div className="flex items-center text-sm text-gray-500">
               <Droplet className="w-4 h-4 mr-1 text-blue-500" />

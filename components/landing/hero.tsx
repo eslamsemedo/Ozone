@@ -80,7 +80,8 @@ import React from 'react';
 
 // ✅ Static import lets Next.js pre-optimise and generate
 //    multiple sizes + a blurred placeholder automatically
-import bg from '@/public/img/p2.jpg';
+// import bg from '@/public/img/hero.jpeg';
+import bg from '@/public/img/bg4.jpeg';
 
 export default function Hero() {
   return (
@@ -94,11 +95,11 @@ export default function Hero() {
         placeholder="blur"
         quality={75}
         sizes="100vw"
-        className="object-cover"
+        className="object-cover bg-cover bg-center  w-full h-full md:object-left lg:object-right md:object-cover lg:object-cover"
+        style={{ objectFit: 'cover' }}
       />
-
       {/* Content overlay */}
-      <div className="absolute top-1/2 left-1/2 md:left-[70%] lg:left-[75%] -translate-x-1/2 -translate-y-1/2 transform text-center w-full max-w-md p-5">
+      <div className="absolute flex justify-center items-center md:scale-105 top-1/3 md:translate-x-1/4  -translate-y-1/3 transform text-center w-full h-full max-w-md p-5">
         <div className="w-full max-w-md p-5 text-center">
           <motion.h1
             initial={{ opacity: 0, y: -40 }}
@@ -116,7 +117,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden text-[#6c757d] md:block"
+            className="hidden text-[#bfd6e9] md:block"
           >
             Join the ultimate fitness journey with OZONE. Our personalised plans and expert guidance will transform your workouts and elevate your health.
           </motion.p>

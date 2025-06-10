@@ -55,9 +55,9 @@ export default function page({ params }: { params: { workout: string } }) {
     <div className='min-h-screen w-full p-2.5'>
       {/* Back Button */}
         <BackBtn />
-      <div className="max-w-6xl my-[10px] rounded-2xl mx-auto p-4 bg-gray-50">
+      <div className="max-w-6xl my-[10px] rounded-2xl mx-auto p-4 bg-[#cfcfcf]">
         {/* Header */}
-        <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+        <div className="bg-[#eeeeee] shadow-md rounded-lg p-6 mb-6">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">{exerciseData?.name}</h1>
 
           <div className="flex flex-wrap gap-3 mb-4">
@@ -125,7 +125,7 @@ export default function page({ params }: { params: { workout: string } }) {
         </div>
 
         {/* Demo Images/GIFs Section */}
-        <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+        <div className="bg-[#eeeeee] shadow-md rounded-lg p-6 mb-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">How To Perform</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {getImages()?.map((image, index) => (
@@ -164,7 +164,7 @@ export default function page({ params }: { params: { workout: string } }) {
         </div>
 
         {/* Steps Section */}
-        <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+        <div className="bg-[#eeeeee] shadow-md rounded-lg p-6 mb-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Instructions</h2>
           <ol className="space-y-4">
             {exerciseData?.correct_steps.map((step) => (
@@ -179,7 +179,7 @@ export default function page({ params }: { params: { workout: string } }) {
         </div>
 
         {/* Muscle Information */}
-        <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+        <div className="bg-[#eeeeee] shadow-md rounded-lg p-6 mb-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Muscles Worked</h2>
 
           <div className="mb-6">
@@ -214,7 +214,7 @@ export default function page({ params }: { params: { workout: string } }) {
         </div>
 
         {/* Body Map Images */}
-        <div className="bg-white shadow-md rounded-lg p-6 mb-6">
+        <div className="bg-[#eeeeee] shadow-md rounded-lg p-6 mb-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Muscle Activation Map</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="border rounded-lg overflow-hidden">
@@ -241,7 +241,7 @@ export default function page({ params }: { params: { workout: string } }) {
         </div>
 
         {/* Technical Details */}
-        <div className="bg-white shadow-md rounded-lg p-6">
+        <div className="bg-[#eeeeee] shadow-md rounded-lg p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Technical Details</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 bg-gray-50 rounded-lg">

@@ -238,7 +238,7 @@ type NumberInputProps = {
   value: number
   onChange: (v: any) => void
 }
-function NumberInput({ label, unit, value, onChange }: NumberInputProps) {
+export function NumberInput({ label, unit, value, onChange }: NumberInputProps) {
   const dec = () => onChange(Math.max(0, value - 1))
   const inc = () => onChange(value + 1)
 

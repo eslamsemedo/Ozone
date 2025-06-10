@@ -382,7 +382,7 @@ export default function Page({ params }: { params: { excersice: string } }) {
           //--------------------------
           <div
             key={item.exercise.id}
-            className=" max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden mb-6"
+            className=" max-w-md mx-auto bg-[#eeeeee] rounded-xl shadow-md overflow-hidden mb-6"
             onClick={()=>handleClick(item.exercise.target_url)}
           >
             <div className="relative h-64 w-full bg-gray-100">
