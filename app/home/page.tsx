@@ -23,8 +23,8 @@ export default async function page() {
 
   return (
     <div
-      className="bg-gradient-to-br from-[#000000] to-[#0F4C75] h-full flex flex-col justify-center items-center text-[#3282B8] font-sans rounded-3xl "
-      
+      className="bg-gradient-to-br from-[#000000] to-[#0F4C75] h-full flex flex-col justify-center items-center text-[#eef2f4] font-sans rounded-3xl "
+      // white color by ahmed abokhshiem
     >
       <div className="text-4xl font-bold text-center mb-4">
         Welcome to FitTrack

@@ -49,7 +49,7 @@ export default function RootLayout({
           <Toaster />
           {/* chatbot AI */}
 
-          <Chatbot />
+          
           
           
         </body>

@@ -1,3 +1,4 @@
+import Chatbot from "@/components/chatbot";
 import Header from "@/components/Header";
 import HeaderMobile from "@/components/header-mobile";
 import Sidebar from "@/components/Sidebar";
@@ -25,6 +26,7 @@ export default async function HomeLayout({
           {children}
         </div>
         <HeaderMobile />
+        <Chatbot />
       </div>
     </>
   )
